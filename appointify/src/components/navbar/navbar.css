@@ -1,0 +1,32 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	background-color: #333;
+	color: #fff;
+}
+
+.left-section {
+	display: flex;
+	align-items: center;
+}
+
+.logo {
+	margin-right: 20px;
+}
+
+.search-bar {
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.right-section {
+	display: flex;
+}
+
+.link {
+	color: #fff;
+	text-decoration: none;
+	margin-left: 10px;
+}

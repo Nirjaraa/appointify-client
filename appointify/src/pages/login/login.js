@@ -4,9 +4,8 @@ import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./login.css";
-// import "./verification.js";
 
-const AccountForm = () => {
+const Login = () => {
 	const [formType, setFormType] = useState("signup");
 	const [formData, setFormData] = useState({
 		fullName: "",
@@ -93,7 +92,7 @@ const AccountForm = () => {
 				title: "Success",
 				text: "User logged in successfully!",
 			});
-			navigate("/cat", { state: { userData: data.user } });
+			navigate("/home", { state: { userData: data.user } });
 		} catch (error) {
 			Swal.fire({
 				icon: "error",
@@ -310,4 +309,4 @@ const AccountForm = () => {
 	);
 };
 
-export default AccountForm;
+export default Login;
