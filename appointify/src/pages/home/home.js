@@ -1,12 +1,16 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "../../components/navbar/navbar";
 
 const HomePage = () => {
+	const location = useLocation();
+	const { user, token } = location.state || {};
 	return (
 		<div>
-			<Navbar />
-			<h1>Welcome to Our Website</h1>
-			<p>This is the home page content.</p>
+			<Navbar token={token} />
+			<div>
+				<h2>THis is the main page</h2>
+			</div>
 		</div>
 	);
 };

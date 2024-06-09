@@ -1,30 +1,73 @@
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import "./navbar.css";
+
+// const Navbar = ({ token }) => {
+// 	return (
+// 		<nav className="navbar">
+// 			<div className="left-section">
+// 				<h1 className="logo">Appointify</h1>
+// 				<input type="text" placeholder="Search..." className="search-bar" />
+// 			</div>
+// 			{/* <div>{JSON.stringify(token)}</div> */}
+
+// 			<div className="right-section">
+// 				<Link to={{ pathname: "/home", state: { token } }} className="link">
+// 					Home
+// 				</Link>
+// 				<Link to={{ pathname: "/appointments", state: { token } }} className="link">
+// 					Appointments
+// 				</Link>
+// 				<Link to={{ pathname: "/professionals", state: { token } }} className="link">
+// 					Professionals
+// 				</Link>
+// 				<Link to={{ pathname: "/about", state: { token } }} className="link">
+// 					About Us
+// 				</Link>
+// 				<Link to={{ pathname: "/profile", state: { token } }} className="link">
+// 					Profile
+// 				</Link>
+// 			</div>
+// 		</nav>
+// 	);
+// };
+
+// export default Navbar;
+
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ token }) => {
+	const navigate = useNavigate();
+
+	const handleNavigation = (path) => {
+		navigate(path, { state: { token } });
+	};
+
 	return (
 		<nav className="navbar">
 			<div className="left-section">
 				<h1 className="logo">Appointify</h1>
 				<input type="text" placeholder="Search..." className="search-bar" />
 			</div>
+
 			<div className="right-section">
-				<Link to="/" className="link">
+				<button onClick={() => handleNavigation("/home")} className="link">
 					Home
-				</Link>
-				<Link to="/appointments" className="link">
+				</button>
+				<button onClick={() => handleNavigation("/appointments")} className="link">
 					Appointments
-				</Link>
-				<Link to="/professionals" className="link">
+				</button>
+				<button onClick={() => handleNavigation("/professionals")} className="link">
 					Professionals
-				</Link>
-				<Link to="/about" className="link">
+				</button>
+				<button onClick={() => handleNavigation("/about")} className="link">
 					About Us
-				</Link>
-				<Link to="/profile" className="link">
+				</button>
+				<button onClick={() => handleNavigation("/profile")} className="link">
 					Profile
-				</Link>
+				</button>
 			</div>
 		</nav>
 	);

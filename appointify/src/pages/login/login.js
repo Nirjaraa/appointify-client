@@ -49,6 +49,7 @@ const Login = () => {
 				},
 				body: JSON.stringify(formData),
 			});
+
 			if (!response.ok) {
 				const errorMessage = await response.text();
 				throw new Error(errorMessage);
@@ -80,19 +81,20 @@ const Login = () => {
 				},
 				body: JSON.stringify({ email: formData.email, password: formData.password }),
 			});
+
 			if (!response.ok) {
 				const errorMessage = await response.text();
 				throw new Error(errorMessage);
 			}
 			const data = await response.json();
 			localStorage.setItem("token", data.token);
-			console.log(localStorage);
+
 			Swal.fire({
 				icon: "success",
 				title: "Success",
 				text: "User logged in successfully!",
 			});
-			navigate("/home", { state: { userData: data.user } });
+			navigate("/home", { state: { userData: data.user, token: data.token } });
 		} catch (error) {
 			Swal.fire({
 				icon: "error",

@@ -1,0 +1,26 @@
+.user-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	border: 1px solid #ccc; /* Optional: for visual separation */
+	border-radius: 5px; /* Optional: for rounded corners */
+}
+
+.user-container div {
+	flex: 1; /* Ensure the name takes up available space */
+}
+
+.user-container button {
+	flex-shrink: 0; /* Prevent button from shrinking */
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.user-container button:hover {
+	background-color: #0056b3;
+}
