@@ -41,18 +41,35 @@ const UserPage = () => {
 		fetchUser();
 	}, [professionalData, token]);
 
+	const handleModalSave = async (startTime, endTime, description, token, appointedTo) => {
+		try {
+			const response = await fetch(`http://localhost:5000/appointment/create`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify({ startTime, endTime, description, appointedTo }),
+			});
+
+			console.log({ startTime, endTime, description, appointedTo });
+
+			if (!response.ok) {
+				const errorMessage = await response.text();
+				throw new Error(errorMessage || "Something went wrong");
+			}
+		} catch (error) {
+			console.error("Error creating appointment:", error);
+			setUser(null);
+		}
+	};
+
 	const handleAppointClick = () => {
 		setIsModalOpen(true);
 	};
 
 	const handleModalClose = () => {
 		setIsModalOpen(false);
-	};
-
-	const handleModalSave = (startTime, endTime) => {
-		console.log("Selected Start Time:", startTime);
-		console.log("Selected End Time:", endTime);
-		// Implement save logic here, such as sending the data to the server
 	};
 
 	if (!professionalData) {
@@ -79,7 +96,13 @@ const UserPage = () => {
 				<div>{user?.fullName}</div>
 				<button onClick={handleAppointClick}>Appoint</button>
 			</div>
-			<Modal show={isModalOpen} onClose={handleModalClose} onSave={handleModalSave} />
+			<Modal
+				show={isModalOpen}
+				onClose={handleModalClose}
+				onConfirm={handleModalSave}
+				token={token}
+				appointedTo={professionalData._id}
+			/>
 		</div>
 	);
 };

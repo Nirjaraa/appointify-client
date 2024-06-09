@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./appointment.css";
 
-const Modal = ({ show, onClose, onConfirm }) => {
+const Modal = ({ show, onClose, onConfirm, token, appointedTo }) => {
 	const [startTime, setStartTime] = useState();
 	const [endTime, setEndTime] = useState();
 	const [description, setDescription] = useState();
@@ -11,7 +11,7 @@ const Modal = ({ show, onClose, onConfirm }) => {
 	}
 
 	const handleConfirm = () => {
-		onConfirm(startTime, endTime, description);
+		onConfirm(startTime, endTime, description, token, appointedTo);
 		onClose();
 	};
 
