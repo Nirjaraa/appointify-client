@@ -1,12 +1,15 @@
 import React from "react";
 import Navbar from "../../components/navbar/navbar";
 
-const aboutUs = () => {
+const landingpage = () => {
   return (
     <div>
-      <Navbar />
+      <div>
+        <Navbar />
+      </div>
+      ;
     </div>
   );
 };
 
-export default aboutUs;
+export default landingpage;

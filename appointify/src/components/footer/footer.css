@@ -1,0 +1,71 @@
+.footer {
+  background: rgb(88, 165, 255);
+  padding: 2rem 8rem; /* Reduced padding to decrease height and increased horizontal padding */
+  color: white;
+  width: 83%; /* Increased width to fit the page */
+  max-width: 1400px; /* Set a slightly larger maximum width */
+  margin: 0 auto; /* Center the footer */
+}
+
+.footer h1 {
+  font-size: 2.5rem; /* Slightly reduced font size */
+  font-weight: 700;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.top i {
+  color: white;
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.top i:hover {
+  color: black;
+}
+
+.bottom {
+  padding-top: 1rem; /* Reduced padding to decrease height */
+  text-align: start;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.bottom div {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom h4 {
+  font-size: 1.2rem; /* Slightly reduced font size */
+  padding: 0.8rem 0 0.6rem 0; /* Adjusted padding */
+}
+
+.bottom a {
+  text-decoration: none;
+  color: #fafafa;
+  padding-bottom: 0.3rem; /* Adjusted padding */
+  font-size: 1rem; /* Slightly reduced font size */
+}
+
+@media screen and (max-width: 850px) {
+  .footer {
+    padding: 2rem 1rem; /* Reduced padding for smaller screens */
+    max-width: 100%; /* Ensure it spans the full width on small screens */
+  }
+
+  .top i {
+    margin: 1rem 1rem 0 0;
+  }
+
+  .bottom div {
+    width: 100%; /* Adjust the width to 100% on smaller screens */
+  }
+}
