@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(118, 173, 228);
+  width: 100%;
+  height: 700px;
+}
+
+.landing-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.landing-left-container,
+.landing-right-container {
+  flex: 1;
+}
+
+.landing-left-container {
+  margin-left: -50px;
+}
+
+.landing-left {
+  padding-right: 20px;
+}
+
+.landing-left h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.landing-left p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.landing-left button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: rgb(31, 85, 146);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.landing-left button:hover {
+  background-color: rgb(88, 155, 245);
+  transform: scale(1.05);
+}
+
+.landing-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.landing-right img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin-top: 20px;
+}
+
+.services {
+  background-color: #ffffff;
+  padding: 50px 0;
+  text-align: center;
+  width: 100%;
+  height: 700px;
+}
+
+.services h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.service-slider {
+  margin-top: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: none;
+}
+
+.service {
+  padding: 20px;
+  margin: 0 10px;
+  background-color: white;
+  border-radius: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  transition: transform 0.5s ease;
+  width: calc(100% / 3 - 20px * 2);
+  width: 20%;
+}
+
+.service img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service {
+  height: 320px;
+  overflow: hidden;
+}
+
+.service p {
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

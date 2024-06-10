@@ -1,14 +1,32 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* The container should take full height and use flexbox to align items */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content should grow to fill available space */
+.content {
+  flex: 1;
+}
 .footer {
   background: rgb(88, 165, 255);
-  padding: 2rem 8rem; /* Reduced padding to decrease height and increased horizontal padding */
+  padding: 1rem 8rem; /* Adjusted padding */
   color: white;
-  width: 83%; /* Increased width to fit the page */
+  width: 83%; /* Keep the width the same */
   max-width: 1400px; /* Set a slightly larger maximum width */
   margin: 0 auto; /* Center the footer */
 }
 
 .footer h1 {
-  font-size: 2.5rem; /* Slightly reduced font size */
+  font-size: 1.5rem; /* Decreased font size */
   font-weight: 700;
 }
 
@@ -22,7 +40,7 @@
 
 .top i {
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem; /* Decreased font size */
   margin-left: 1rem;
 }
 
@@ -31,7 +49,7 @@
 }
 
 .bottom {
-  padding-top: 1rem; /* Reduced padding to decrease height */
+  padding-top: 0.5rem; /* Adjusted padding */
   text-align: start;
   display: flex;
   justify-content: space-between;
@@ -44,20 +62,20 @@
 }
 
 .bottom h4 {
-  font-size: 1.2rem; /* Slightly reduced font size */
-  padding: 0.8rem 0 0.6rem 0; /* Adjusted padding */
+  font-size: 1rem; /* Decreased font size */
+  padding: 0.5rem 0 0.3rem 0; /* Adjusted padding */
 }
 
 .bottom a {
   text-decoration: none;
   color: #fafafa;
-  padding-bottom: 0.3rem; /* Adjusted padding */
-  font-size: 1rem; /* Slightly reduced font size */
+  padding-bottom: 0.2rem; /* Adjusted padding */
+  font-size: 0.9rem; /* Decreased font size */
 }
 
 @media screen and (max-width: 850px) {
   .footer {
-    padding: 2rem 1rem; /* Reduced padding for smaller screens */
+    padding: 1rem 1rem; /* Reduced padding for smaller screens */
     max-width: 100%; /* Ensure it spans the full width on small screens */
   }
 

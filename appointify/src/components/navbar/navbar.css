@@ -17,7 +17,7 @@ body {
   top: 0;
   left: 0;
   z-index: 9999;
-  border-bottom: 1px solid rgba(88, 165, 255, 1); /* Thin bottom border */
+  border-bottom: 1.2px solid rgba(88, 165, 255, 1.1); /* Thin bottom border */
   position: fixed;
 }
 

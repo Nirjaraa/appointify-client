@@ -1,7 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./professional.css";
-import Footer from "../footer/footer";
 
 export default function Professional({ data }) {
   const navigate = useNavigate();

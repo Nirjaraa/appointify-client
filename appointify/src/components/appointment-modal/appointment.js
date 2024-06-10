@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./appointment.css";
+import Swal from "sweetalert2";
 
 const Modal = ({ show, onClose, onConfirm, token, appointedTo }) => {
   const [startTime, setStartTime] = useState();
@@ -11,7 +12,22 @@ const Modal = ({ show, onClose, onConfirm, token, appointedTo }) => {
   }
 
   const handleConfirm = () => {
-    onConfirm(startTime, endTime, description, token, appointedTo);
+    Swal.fire({
+      title: "Confirm Appointment",
+      text: "Are you sure you want to book this appointment?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Confirm",
+      cancelButtonText: "Cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        onConfirm(startTime, endTime, description, token, appointedTo);
+        Swal.fire("Success", "Appointment has been booked successfully", "success");
+      }
+    });
+
     onClose();
   };
 

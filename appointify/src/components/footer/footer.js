@@ -8,16 +8,16 @@ const Footer = () => {
           <p>Save your time and energy.</p>
         </div>
         <div>
-          <a href="https://www.facebook.com/profile.php?id=100089205386807">
+          <a href="https://www.facebook.com">
             <i class="fa-brands fa-square-facebook"></i>
           </a>
-          <a href="https://www.instagram.com/saak_cy/">
+          <a href="https://www.instagram.com">
             <i class="fa-brands fa-square-instagram"></i>
           </a>
-          <a href="https://github.com/saakcy7">
+          <a href="https://github.com">
             <i class="fa-brands fa-square-github"></i>
           </a>
-          <a href="https://www.linkedin.com/in/sakshi-kc-732162280/">
+          <a href="https://www.linkedin.com">
             <i class="fa-brands fa-linkedin"></i>
           </a>
         </div>
@@ -32,7 +32,7 @@ const Footer = () => {
         </div>
         <div>
           <h4>Community</h4>
-          <a href="https://github.com/saakcy7">GitHub</a>
+          <a href="https://github.com">GitHub</a>
           <a href="/">Issues</a>
           <a href="/">Project</a>
           <a href="/">Twitter</a>

@@ -1,75 +1,75 @@
 /* General styles */
 body {
-	font-family: "Arial", sans-serif;
-	margin: 0;
-	padding: 0;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* Signup page specific styles */
 .signup-page-container {
-	/* background: url(../assets/photi.webp); */
-	min-height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  /* background: url(../assets/photi.webp); */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .account-form-wrapper {
-	background-color: white;
-	padding: 20px;
-	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	max-width: 500px;
-	width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
 }
 
 .account-form-container h1 {
-	font-weight: bold;
-	text-align: center;
+  font-weight: bold;
+  text-align: center;
 }
 
 /* Button and toggle button styles */
 .account-form-container .button-container {
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	margin-top: 20px;
-	flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  flex-direction: row;
 }
 
 .account-form-container button,
 .account-form-container .toggle-button {
-	background-color: #007bff;
-	color: white;
-	padding: 10px 15px;
-	border: none;
-	border-radius: 50px;
-	cursor: pointer;
-	width: 48%;
-	text-align: center;
-	box-sizing: border-box;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 48%;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .account-form-container button:hover,
 .account-form-container .toggle-button:hover {
-	background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 /* Inactive button styles */
 .account-form-container .toggle-button.inactive {
-	background-color: white;
-	color: #007bff;
-	border: 1px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  border: 1px solid #007bff;
 }
 
 .account-form-container .toggle-button.inactive:hover {
-	background-color: #007bff;
-	color: white;
+  background-color: #007bff;
+  color: white;
 }
 
 /* Form styles */
 .account-form-container form {
-	width: 100%;
+  width: 100%;
 }
 
 .account-form-container input[type="text"],
@@ -78,91 +78,94 @@ body {
 .account-form-container input[type="tel"],
 .account-form-container input[type="date"],
 .account-form-container select {
-	width: 100%;
-	padding: 10px;
-	margin-top: 8px;
-	margin-bottom: 8px;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .account-form-container select {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	background: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>')
-		no-repeat;
-	background-position: right 10px top 50%;
-	background-size: 12px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 12px;
 }
 
 .account-form-container input[type="submit"] {
-	background-color: #28a745;
-	color: white;
-	padding: 10px 15px;
-	border: none;
-	border-radius: 50px;
-	cursor: pointer;
-	width: 100%;
-	margin-top: 10px;
-	text-align: center;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
 }
 
 .account-form-container input[type="submit"]:hover {
-	background-color: #218838;
+  background-color: #218838;
 }
 
 /* Password container and icon styles */
 .password-container {
-	position: relative;
+  position: relative;
 }
 
 .password-container input {
-	padding-right: 40px;
+  padding-right: 40px;
 }
 
 .password-icon {
-	position: absolute;
-	top: 50%;
-	right: 10px;
-	transform: translateY(-50%);
-	cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 
 /* Responsive styles */
 @media (max-width: 450px) {
-	.account-form-container form {
-		max-width: 100%;
-		padding: 10px;
-	}
+  .account-form-container form {
+    max-width: 100%;
+    padding: 10px;
+  }
 
-	.account-form-container .button-container {
-		display: flex;
-		justify-content: space-between;
-		width: 100%;
-		margin-top: 20px;
-		flex-direction: row;
-	}
+  .account-form-container .button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    flex-direction: row;
+  }
 
-	.account-form-container button,
-	.account-form-container .toggle-button {
-		width: 100%;
-	}
+  .account-form-container button,
+  .account-form-container .toggle-button {
+    width: 100%;
+  }
 }
 
 .forgot-password-link {
-	display: block;
-	margin-top: 10px;
-	color: #007bff;
-	text-decoration: underline;
-	cursor: pointer;
-	background: none;
-	border: none;
-	font-size: 1rem;
-	text-align: center;
+  display: block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
 }
 
 .forgot-password-link:hover {
-	color: #0056b3;
+  color: #0056b3;
+}
+
+.buttons {
+  margin-left: 150px;
 }

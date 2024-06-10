@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/navbar";
 import Modal from "../../components/appointment-modal/appointment";
 import "./user.css";
 import Footer from "../../components/footer/footer";
+import image from "../../images/salman.jpg";
 
 const UserPage = () => {
   const [user, setUser] = useState(null);
@@ -89,13 +90,25 @@ const UserPage = () => {
     );
   }
 
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
+
   return (
     <div>
       <Navbar token={token} />
       <div className="profile-container">
         <div className="profile-info-container">
           <div className="profile-header">
-            <div className="profile-avatar">{/* Add avatar image here */}</div>
+            <div className="profile-avatar">
+              <img src={image} alt="User Avatar" />
+            </div>
             <div className="profile-info">
               <h2>{user.fullName}</h2>
               <p>{user.role}</p>
@@ -119,7 +132,7 @@ const UserPage = () => {
           <div className="dob-info">
             <div className="detail">
               <label htmlFor="dob">DOB:</label>
-              <input type="text" id="dob" value={user.DOB} readOnly />
+              <input type="text" id="dob" value={formatDate(user.DOB)} readOnly />
             </div>
             <div className="detail">
               <label htmlFor="gender">Gender:</label>
@@ -134,15 +147,15 @@ const UserPage = () => {
             <div className="professional-info">
               <div className="detail">
                 <label htmlFor="category">Category:</label>
-                <textarea id="category" value={user.category} readOnly />
+                <input type="text" value={user.category} readOnly />
               </div>
               <div className="detail">
                 <label htmlFor="profession">Profession:</label>
-                <textarea id="profession" value={user.profession} readOnly />
+                <input type="text" value={user.profession} readOnly />
               </div>
               <div className="detail">
                 <label htmlFor="description">Description:</label>
-                <textarea id="description" value={user.description} readOnly />
+                <input type="text" value={user.description} readOnly />
               </div>
             </div>
           )}
