@@ -15,12 +15,14 @@ const HomePage = () => {
 					headers: {
 						"Content-Type": "application/json",
 					},
+					Authorization: `Bearer ${token}`,
 				});
 
 				if (!response.ok) {
 					const errorMessage = await response.text();
 					throw new Error(errorMessage || "Something went wrong");
 				}
+				console.log(response);
 
 				const data = await response.json();
 				setAppointments(data);
