@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./login.css";
+import Footer from "../../components/footer/footer";
 
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
@@ -63,6 +64,7 @@ const ResetPassword = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -27,7 +27,6 @@ body {
 }
 
 .logo {
-  color: #222;
   font-size: 2rem; /* Increased font size */
   margin-right: 10px; /* Reduced margin */
   cursor: pointer;
@@ -53,12 +52,12 @@ body {
 }
 
 .link {
-  color: #222;
+  color: rgb(0, 0, 0);
   text-decoration: none;
-  font-size: 1.1rem; /* Increased font size */
+  font-size: 1.2rem; /* Increased font size */
   font-weight: 200; /* Thicker font */
-  margin-left: 10px; /* Adjusted margin */
   height: 80px; /* Match the height of the navbar */
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,6 +66,10 @@ body {
   font-family: "Poppins", sans-serif; /* Use the imported font */
   border: none;
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.right-section button {
+  border-radius: 0px;
 }
 
 .link:hover {

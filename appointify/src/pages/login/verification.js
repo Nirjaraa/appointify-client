@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./login.css";
-
+import Footer from "../../components/footer/footer";
 const VerifyEmail = () => {
   const [verificationCode, setVerificationCode] = useState("");
   const location = useLocation();
@@ -69,6 +69,7 @@ const VerifyEmail = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

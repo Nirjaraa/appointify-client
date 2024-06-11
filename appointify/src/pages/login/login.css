@@ -1,17 +1,26 @@
-/* General styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+html,
 body {
-  font-family: "Arial", sans-serif;
+  height: 100%;
   margin: 0;
-  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-/* Signup page specific styles */
-.signup-page-container {
-  /* background: url(../assets/photi.webp); */
-  min-height: 100vh;
+body {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.signup-page-container {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa; /* Optional: Set a background color */
 }
 
 .account-form-wrapper {
@@ -21,6 +30,8 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 500px;
   width: 100%;
+  margin-bottom: 30px;
+  flex-direction: column;
 }
 
 .account-form-container h1 {
@@ -28,13 +39,11 @@ body {
   text-align: center;
 }
 
-/* Button and toggle button styles */
 .account-form-container .button-container {
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin-top: 20px;
-  flex-direction: row;
 }
 
 .account-form-container button,
@@ -55,7 +64,6 @@ body {
   background-color: #0056b3;
 }
 
-/* Inactive button styles */
 .account-form-container .toggle-button.inactive {
   background-color: white;
   color: #007bff;
@@ -67,7 +75,6 @@ body {
   color: white;
 }
 
-/* Form styles */
 .account-form-container form {
   width: 100%;
 }
@@ -112,7 +119,6 @@ body {
   background-color: #218838;
 }
 
-/* Password container and icon styles */
 .password-container {
   position: relative;
 }
@@ -129,7 +135,15 @@ body {
   cursor: pointer;
 }
 
-/* Responsive styles */
+.Footer {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #eaeaea;
+  width: 100%;
+  margin-top: 160px; /* Ensures footer is at the bottom */
+}
+
 @media (max-width: 450px) {
   .account-form-container form {
     max-width: 100%;
@@ -141,7 +155,6 @@ body {
     justify-content: space-between;
     width: 100%;
     margin-top: 20px;
-    flex-direction: row;
   }
 
   .account-form-container button,
@@ -162,10 +175,11 @@ body {
   text-align: center;
 }
 
-.forgot-password-link:hover {
-  color: #0056b3;
+.buttons {
+  padding-left: 120px;
+  width: 100%;
 }
 
-.buttons {
-  margin-left: 150px;
+.forgot-password-link:hover {
+  color: #0056b3;
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate, useLocation } from "react-router-dom";
+import Footer from "../../components/footer/footer";
 
 const VerifyResetOTP = () => {
   const [otp, setOtp] = useState("");
@@ -60,6 +61,7 @@ const VerifyResetOTP = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
