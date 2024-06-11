@@ -2,8 +2,6 @@ import "./appointment.css";
 import React, { useState } from "react";
 
 const AppointmentBy = ({ appointments, onCancel }) => {
-	console.log("appointed by");
-	console.log(appointments);
 	return (
 		<div>
 			{appointments.length > 0 ? (
@@ -44,8 +42,6 @@ const AppointmentBy = ({ appointments, onCancel }) => {
 };
 
 const AppointmentTo = ({ appointments, onAccept, onReject }) => {
-	console.log("appointed to");
-	console.log(appointments);
 	return (
 		<div>
 			{appointments.length > 0 ? (

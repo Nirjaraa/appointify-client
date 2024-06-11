@@ -4,15 +4,15 @@ import Navbar from "../../components/navbar/navbar";
 import Professional from "../../components/professional/professional";
 import Footer from "../../components/footer/footer";
 
-const ProfessionalPage = () => {
+const CategoryPage = () => {
 	const [professionals, setProfessionals] = useState([]);
 	const location = useLocation();
-	const { token } = location.state || {};
+	const { token, category, userData } = location.state || {};
 
 	useEffect(() => {
 		const fetchProfessionals = async () => {
 			try {
-				const response = await fetch("http://localhost:5000/user/category-users", {
+				const response = await fetch(`http://localhost:5000/user/getusersbycategory?category=${category}`, {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
@@ -25,7 +25,7 @@ const ProfessionalPage = () => {
 				}
 
 				const data = await response.json();
-				setProfessionals(data);
+				setProfessionals(data.users);
 			} catch (error) {
 				console.error("Error fetching professionals:", error);
 				setProfessionals([]); // Set an empty array in case of an error
@@ -45,14 +45,11 @@ const ProfessionalPage = () => {
 
 	return (
 		<div>
-			<Navbar token={token} />
-			{/* <div>{JSON.stringify(token)}</div> */}
-			{professionals.users.map((categoryData) => (
-				<Professional data={categoryData} category={categoryData[0].category} token={token} />
-			))}
+			<Navbar token={token} userData={userData} />
+			<Professional data={professionals} token={token} category={category} />
 			<Footer />
 		</div>
 	);
 };
 
-export default ProfessionalPage;
+export default CategoryPage;
