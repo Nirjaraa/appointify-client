@@ -30,7 +30,10 @@ const AppointmentBy = ({ appointments, onCancel }) => {
 								{new Date(appointment.startTime).toLocaleTimeString()} -{" "}
 								{new Date(appointment.endTime).toLocaleTimeString()}
 							</p>
-							<button onClick={() => onCancel(appointment._id)}>Cancel</button>
+							{/* <button onClick={() => onCancel(appointment._id)}>Cancel</button> */}
+							{appointment.status === "pending" && (
+								<button onClick={() => onCancel(appointment._id)}>Cancel</button>
+							)}
 						</div>
 					</div>
 				))
@@ -115,8 +118,8 @@ const AppointmentItem = ({ appointment, onAccept, onReject }) => {
 				<button onClick={handleShowMore}>{showMore ? "Show Less" : "Show More"}</button>
 			</div>
 			<div className="action-buttons">
-				<button onClick={() => onAccept(appointment._id)}>Accept</button>
-				<button onClick={() => onReject(appointment._id)}>Reject</button>
+				{appointment.status === "pending" && <button onClick={() => onAccept(appointment._id)}>Accept</button>}
+				{appointment.status === "pending" && <button onClick={() => onReject(appointment._id)}>Reject</button>}
 			</div>
 		</div>
 	);

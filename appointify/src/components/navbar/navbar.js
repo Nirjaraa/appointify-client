@@ -43,8 +43,6 @@ const Navbar = ({ token, userData }) => {
 	const handleNavigation = (path) => {
 		navigate(path, { state: { token, userData } });
 	};
-	console.log("navbar");
-	console.log(userData);
 
 	return (
 		<>
