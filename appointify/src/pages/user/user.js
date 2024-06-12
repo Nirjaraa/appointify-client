@@ -10,7 +10,10 @@ const UserPage = () => {
   const [user, setUser] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
-  const { professionalData, token } = location.state || {};
+  const { professionalData, token, userData } = location.state || {};
+
+  console.log("userW");
+  console.log(token);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -54,8 +57,6 @@ const UserPage = () => {
         body: JSON.stringify({ startTime, endTime, description, appointedTo }),
       });
 
-      console.log({ startTime, endTime, description, appointedTo });
-
       if (!response.ok) {
         const errorMessage = await response.text();
         throw new Error(errorMessage || "Something went wrong");
@@ -76,7 +77,7 @@ const UserPage = () => {
   if (!professionalData) {
     return (
       <div>
-        <Navbar token={token} />
+        <Navbar token={token} userData={userData} />
         <div>No professional data provided.</div>
       </div>
     );
@@ -84,7 +85,7 @@ const UserPage = () => {
   if (!user) {
     return (
       <div>
-        <Navbar token={token} />
+        <Navbar token={token} userData={userData} />
         <div>User data not available</div>
       </div>
     );
@@ -102,7 +103,7 @@ const UserPage = () => {
 
   return (
     <div>
-      <Navbar token={token} />
+      <Navbar token={token} userData={userData} />
       <div className="profile-container">
         <div className="profile-info-container">
           <div className="profile-header">

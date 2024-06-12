@@ -38,10 +38,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./navbar.css";
 
-const Navbar = ({ token }) => {
+const Navbar = ({ token, userData }) => {
   const navigate = useNavigate();
   const handleNavigation = (path) => {
-    navigate(path, { state: { token } });
+    navigate(path, { state: { token, userData } });
   };
 
   return (
@@ -56,9 +56,7 @@ const Navbar = ({ token }) => {
           <button onClick={() => handleNavigation("/home")} className="link">
             Home
           </button>
-          <button onClick={() => handleNavigation("/appointments")} className="link">
-            Appointments
-          </button>
+
           <button onClick={() => handleNavigation("/professionals")} className="link">
             Professionals
           </button>

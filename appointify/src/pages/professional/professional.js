@@ -48,7 +48,7 @@ const ProfessionalPage = () => {
       <Navbar token={token} />
       {/* <div>{JSON.stringify(token)}</div> */}
       {professionals.users.map((categoryData) => (
-        <Professional data={categoryData} token={token} />
+        <Professional data={categoryData} category={categoryData[0].category} token={token} />
       ))}
       <Footer />
     </div>

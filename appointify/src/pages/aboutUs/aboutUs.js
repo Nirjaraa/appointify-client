@@ -2,11 +2,16 @@ import React from "react";
 import "./aboutUs.css";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
+import { useLocation } from "react-router-dom";
 
 const AboutUs = () => {
+  const location = useLocation();
+  const { token, userData } = location.state || {};
+
   return (
     <div className="Page">
-      <Navbar />
+      <Navbar token={token} userData={userData} />
+
       <div className="MainContainer">
         <header className="Header">
           <h1>About Us</h1>

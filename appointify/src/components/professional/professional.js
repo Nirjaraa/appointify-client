@@ -1,14 +1,16 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./professional.css";
 
-export default function Professional({ data }) {
+export default function Professional({ category, data, token }) {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { token } = location.state || {};
 
   const handleClick = (user) => {
     navigate("/user", { state: { professionalData: user, token } });
+  };
+
+  const handleHeadingClick = () => {
+    navigate("/category", { state: { category: data[0]?.category, token } });
   };
 
   if (!data || data.length === 0) {
@@ -17,8 +19,8 @@ export default function Professional({ data }) {
 
   return (
     <div className="category">
-      <div className="category-heading">
-        <h2>{data[0]?.category ? data[0].category.charAt(0).toUpperCase() + data[0].category.slice(1) : ""}</h2>
+      <div className="category-heading" onClick={handleHeadingClick}>
+        <h2>{category ? category.charAt(0).toUpperCase() + category.slice(1) : ""}</h2>
       </div>
       <div className="category-professional-container">
         {data.map((user) => (

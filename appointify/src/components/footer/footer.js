@@ -1,4 +1,5 @@
 import "./footer.css";
+
 const Footer = () => {
   return (
     <div className="footer">
@@ -9,16 +10,16 @@ const Footer = () => {
         </div>
         <div>
           <a href="https://www.facebook.com">
-            <i class="fa-brands fa-square-facebook"></i>
+            <i className="fab fa-facebook-f"></i>
           </a>
           <a href="https://www.instagram.com">
-            <i class="fa-brands fa-square-instagram"></i>
+            <i className="fab fa-instagram"></i>
           </a>
           <a href="https://github.com">
-            <i class="fa-brands fa-square-github"></i>
+            <i className="fab fa-github"></i>
           </a>
           <a href="https://www.linkedin.com">
-            <i class="fa-brands fa-linkedin"></i>
+            <i className="fab fa-linkedin"></i>
           </a>
         </div>
       </div>
@@ -53,4 +54,5 @@ const Footer = () => {
     </div>
   );
 };
+
 export default Footer;

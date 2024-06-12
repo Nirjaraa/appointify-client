@@ -96,3 +96,31 @@ body {
   transform: translateY(-2px) scale(1.02); /* Slightly enlarge and move up on hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly darker shadow on hover */
 }
+
+@media screen and (max-width: 768px) {
+  /* Adjust container width */
+  .container {
+    padding: 10px;
+  }
+
+  /* Adjust category width */
+  .category {
+    width: 90%;
+    max-width: 500px;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* Adjust container width */
+  .container {
+    padding: 5px;
+  }
+
+  /* Adjust category width */
+  .category {
+    width: 95%;
+    max-width: 400px;
+    margin-top: 30px;
+  }
+}

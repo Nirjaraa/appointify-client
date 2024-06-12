@@ -1,0 +1,52 @@
+.appointment-nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.appointment-nav-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 20px;
+  margin: 0 10px;
+  color: #333; /* Default font color */
+  font-weight: bold;
+}
+
+.appointment-nav-item.active {
+  border-bottom: 2px solid black; /* Active link bottom border */
+  color: #000; /* Font color for active link */
+}
+
+.appointment-nav-item:hover {
+  color: #555; /* Font color on hover */
+}
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .appointment-nav {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center;
+  }
+
+  .appointment-nav-item {
+    margin: 10px 0; /* Add margin between items when stacked */
+  }
+
+  .appointment-nav-item.active {
+    border-bottom: none; /* Remove bottom border for active item */
+    border-left: 2px solid black; /* Add left border for active item */
+  }
+}
+body {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 480px) {
+    .appointment-nav-item {
+      font-size: 18px; /* Reduce font size on very small screens */
+      padding: 8px 16px;
+    }
+  }
+}

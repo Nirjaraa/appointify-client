@@ -49,6 +49,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   margin-right: 2%;
+  height: 100%;
 }
 
 .link {
@@ -75,39 +76,32 @@ body {
 .link:hover {
   background-color: rgba(88, 165, 255, 0.3); /* Background color to indicate hover state */
   color: #222;
-  height: 80px;
+  height: 100%;
 }
 
-@media screen and (max-width: 850px) {
-  .navbar {
-    flex-direction: column;
-    height: auto;
-    padding: 10px 20px;
+&::before,
+&::after {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  /* Show side lines on smaller screens */
+  &::before,
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px; /* Width of the side lines */
+    background-color: rgba(88, 165, 255, 0.1); /* Color of the side lines */
   }
 
-  .left-section {
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 10px;
+  &::before {
+    left: 0;
   }
 
-  .right-section {
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-  }
-
-  .link {
-    width: 100%;
-    text-align: center;
-    margin: 5px 0;
-    height: auto; /* Adjust height for smaller screens */
-    padding: 1rem;
-    font-size: 1rem;
-  }
-
-  .search-bar {
-    width: 100%;
-    height: auto;
+  &::after {
+    right: 0;
   }
 }

@@ -1,47 +1,73 @@
 import "./appointment.css";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const AppointmentBy = ({ appointments, onCancel }) => {
-  console.log("appointed by");
-  console.log(appointments);
+  const filteredAppointments = appointments.filter((appointment) => appointment.status === "pending");
+  const sortedAppointments = filteredAppointments.sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
+
   return (
     <div>
-      {appointments.length > 0 ? (
-        appointments.map((appointment) => (
-          <div key={appointment._id} className="appointment">
-            <div className="appointment-header">
-              <div>
+      {sortedAppointments.length > 0 ? (
+        sortedAppointments.map((appointment) => (
+          <div key={appointment._id}>
+            <div className="appointment-information">
+              <div className="appointment-header">
+                <div>
+                  <p>
+                    <strong>Appointed To:</strong> {appointment.appointedTo.fullName}
+                  </p>
+                </div>
+                <div>
+                  <p className={`status ${appointment.status}`}>
+                    <strong>Status:</strong> {appointment.status}
+                  </p>
+                </div>
+              </div>
+              <div className="appointment-summary">
                 <p>
-                  <strong>Appointed To:</strong> {appointment.appointedTo.fullName}
+                  <strong>Date:</strong> {new Date(appointment.startTime).toLocaleDateString()}
                 </p>
-              </div>
-              <div>
-                <p className={`status ${appointment.status}`}>
-                  <strong>Status:</strong> {appointment.status}
+                <p>
+                  <strong>Time:</strong> {new Date(appointment.startTime).toLocaleTimeString()} - {new Date(appointment.endTime).toLocaleTimeString()}
                 </p>
+
+                {/* <button onClick={() => onCancel(appointment._id)}>Cancel</button> */}
+                {appointment.status === "pending" && (
+                  <button className="cancel-button" onClick={() => handleCancel(appointment)}>
+                    Cancel
+                  </button>
+                )}
               </div>
-            </div>
-            <div className="appointment-summary">
-              <p>
-                <strong>Date:</strong> {new Date(appointment.startTime).toLocaleDateString()}
-              </p>
-              <p>
-                <strong>Time:</strong> {new Date(appointment.startTime).toLocaleTimeString()} - {new Date(appointment.endTime).toLocaleTimeString()}
-              </p>
-              <button onClick={() => onCancel(appointment._id)}>Cancel</button>
             </div>
           </div>
         ))
       ) : (
-        <p>No appointments found.</p>
+        <div className="spaces">
+          <p>No appointments found.</p>
+        </div>
       )}
     </div>
   );
+  function handleCancel(appointment) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to cancel this appointment?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#28a745",
+      cancelButtonColor: "#d9534f",
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        onCancel(appointment._id);
+      }
+    });
+  }
 };
 
 const AppointmentTo = ({ appointments, onAccept, onReject }) => {
-  console.log("appointed to");
-  console.log(appointments);
   return (
     <div>
       {appointments.length > 0 ? (
@@ -55,16 +81,15 @@ const AppointmentTo = ({ appointments, onAccept, onReject }) => {
 
 const AppointmentItem = ({ appointment, onAccept, onReject }) => {
   const [showMore, setShowMore] = useState(false);
-
   const handleShowMore = () => {
     setShowMore(!showMore);
   };
 
   const { startTime, endTime, description, status, appointedBy } = appointment;
-  const { fullName, email, phoneNumber, address, gender, createdAt } = appointedBy;
+  const { fullName, email, phoneNumber, address, gender } = appointedBy;
 
   return (
-    <div className="appointment">
+    <div className="appointment-informations">
       <div className="appointment-header">
         <div>
           <p>
@@ -99,31 +124,73 @@ const AppointmentItem = ({ appointment, onAccept, onReject }) => {
             <p>
               <strong>Gender:</strong> {gender}
             </p>
-            <p>
-              <strong>Created At:</strong> {new Date(createdAt).toLocaleString()}
-            </p>
           </div>
         )}
-        <button onClick={handleShowMore}>{showMore ? "Show Less" : "Show More"}</button>
+        <span className="show-more" onClick={handleShowMore}>
+          {showMore ? "Show Less" : "Show More"}
+        </span>
       </div>
       <div className="action-buttons">
-        <button className="action-buttons-accept" onClick={() => onAccept(appointment._id)}>
-          Accept
-        </button>
-        <button className="action-buttons-reject" onClick={() => onReject(appointment._id)}>
-          Reject
-        </button>
+        {appointment.status === "pending" && (
+          <button className="accept-button" onClick={() => handleAccept(appointment)}>
+            Accept
+          </button>
+        )}
+        {appointment.status === "pending" && (
+          <button className="reject-button" onClick={() => handleReject(appointment)}>
+            Reject
+          </button>
+        )}
       </div>
     </div>
   );
+  function handleAccept(appointment) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to accept this appointment?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#28a745", // Green color for confirm button
+      cancelButtonColor: "#d9534f", // Red color for cancel button
+      confirmButtonText: "Yes",
+      cancelButtonText: "No", // Change "No" option to red
+    }).then((result) => {
+      if (result.isConfirmed) {
+        onAccept(appointment._id);
+      }
+    });
+  }
+
+  function handleReject(appointment) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to reject this appointment?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#28a745",
+      cancelButtonColor: "#d9534f",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        onReject(appointment._id);
+      }
+    });
+  }
 };
 
-const AppointmentHistory = ({ appointments }) => {
+const getConfirmedAppointments = (appointments) => {
+  const currentDate = new Date();
+  return appointments.filter((appointment) => new Date(appointment.startTime) >= currentDate && appointment.status === "accepted");
+};
+
+const ConfirmedAppointments = ({ appointments }) => {
+  const confirmedAppointments = getConfirmedAppointments(appointments);
+
   return (
     <div>
-      {appointments.length > 0 ? (
-        appointments.map((appointment) => (
-          <div key={appointment._id} className="appointment">
+      {confirmedAppointments.length > 0 ? (
+        confirmedAppointments.map((appointment) => (
+          <div key={appointment._id} className="appointment-information">
             <div className="appointment-header">
               <div>
                 <p>
@@ -153,10 +220,52 @@ const AppointmentHistory = ({ appointments }) => {
           </div>
         ))
       ) : (
-        <p>No appointment history found.</p>
+        <p>No confirmed appointments found.</p>
       )}
     </div>
   );
 };
+// const AppointmentHistory = ({ appointments }) => {
+//   const confirmedAppointments = getConfirmedAppointments(appointments);
 
-export { AppointmentTo, AppointmentBy, AppointmentHistory };
+//   return (
+//     <div>
+//       {confirmedAppointments.length > 0 ? (
+//         confirmedAppointments.map((appointment) => (
+//           <div key={appointment._id} className="appointment-information">
+//             <div className="appointment-header">
+//               <div>
+//                 <p>
+//                   <strong>Appointed By:</strong> {appointment.appointedBy.fullName}
+//                 </p>
+//                 <p>
+//                   <strong>Appointed To:</strong> {appointment.appointedTo.fullName}
+//                 </p>
+//               </div>
+//               <div>
+//                 <p className={`status ${appointment.status}`}>
+//                   <strong>Status:</strong> {appointment.status}
+//                 </p>
+//               </div>
+//             </div>
+//             <div className="appointment-summary">
+//               <p>
+//                 <strong>Date:</strong> {new Date(appointment.startTime).toLocaleDateString()}
+//               </p>
+//               <p>
+//                 <strong>Time:</strong> {new Date(appointment.startTime).toLocaleTimeString()} - {new Date(appointment.endTime).toLocaleTimeString()}
+//               </p>
+//               <p>
+//                 <strong>Description:</strong> {appointment.description}
+//               </p>
+//             </div>
+//           </div>
+//         ))
+//       ) : (
+//         <p>No appointment history found.</p>
+//       )}
+//     </div>
+//   );
+// };
+
+export { AppointmentTo, AppointmentBy, ConfirmedAppointments };
