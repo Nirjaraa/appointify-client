@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../../components/navbar/navbar";
-import { AppointmentBy, AppointmentTo, AppointmentHistory, ConfirmedAppointments } from "../../components/appointment/appointment";
+import { AppointmentBy, AppointmentTo, ConfirmedAppointments, History } from "../../components/appointment/appointment";
 import Footer from "../../components/footer/footer";
 import "./home.css";
 
@@ -10,7 +10,7 @@ const HomePage = () => {
   const { token, userData } = location.state || {};
   const [appointmentsBy, setAppointmentsBy] = useState([]);
   const [appointmentsTo, setAppointmentsTo] = useState([]);
-  const [appointmentHistory, setAppointmentHistory] = useState([]);
+  const [acceptedAppointments, setAcceptedAppointments] = useState([]);
   const [currentUserData, setCurrentUserData] = useState([]);
   const [currentView, setCurrentView] = useState("by");
 
@@ -32,6 +32,7 @@ const HomePage = () => {
       const data = await response.json();
       setAppointmentsBy(data.allAppointmentsBy || []);
       setAppointmentsTo(data.allAppointmentsTo || []);
+      setAcceptedAppointments({ appointedBy: data.allAppointmentsBy, appointedTo: data.allAppointmentsTo } || []);
       setCurrentUserData(userData);
     } catch (error) {
       console.error("Error fetching appointments:", error);
@@ -127,19 +128,21 @@ const HomePage = () => {
           <button className={`appointment-nav-item ${currentView === "to" ? "active" : ""}`} onClick={() => setCurrentView("to")}>
             Appointment Requests
           </button>
+          <button className={`appointment-nav-item ${currentView === "confirmed" ? "active" : ""}`} onClick={() => setCurrentView("confirmed")}>
+            Confirmed Appointments
+          </button>
           <button className={`appointment-nav-item ${currentView === "history" ? "active" : ""}`} onClick={() => setCurrentView("history")}>
-            History
+            Appointment History
           </button>
         </div>
         <div className="appointment-container">
           {currentView === "by" && <AppointmentBy appointments={appointmentsBy} onCancel={handleCancel} />}
           {currentView === "to" && <AppointmentTo appointments={appointmentsTo} onAccept={handleAccept} onReject={handleReject} />}
-          {currentView === "s" && <ConfirmedAppointments appointments={ConfirmedAppointments} />}
+          {currentView === "confirmed" && <ConfirmedAppointments appointments={acceptedAppointments} />}
+          {currentView === "history" && <History appointments={acceptedAppointments} />}
         </div>
       </div>
-      <div classname="f">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };

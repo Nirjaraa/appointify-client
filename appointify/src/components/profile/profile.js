@@ -1,20 +1,9 @@
+//
 import React, { useState, useEffect } from "react";
 import image from "../../images/salman.jpg";
 import "./profile.css";
 
 const Profile = ({ token, userData }) => {
-  const [user, setUser] = useState({
-    fullName: "",
-    email: "",
-    address: "",
-    DOB: "",
-    gender: "",
-    phoneNumber: "",
-    role: "",
-    category: "",
-    profession: "",
-    description: "",
-  });
   const [editedUser, setEditedUser] = useState({
     fullName: "",
     email: "",
@@ -31,7 +20,6 @@ const Profile = ({ token, userData }) => {
 
   useEffect(() => {
     if (userData) {
-      setUser(userData);
       setEditedUser(userData);
     }
   }, [userData]);
@@ -54,7 +42,7 @@ const Profile = ({ token, userData }) => {
 
   const handleSave = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/user/update/${userData._id}`, {
+      const response = await fetch(`http://localhost:5000/user/${userData._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -70,12 +58,27 @@ const Profile = ({ token, userData }) => {
 
       const data = await response.json();
       console.log(data);
-      setUser(data.user);
+
       setEditedUser(data.user);
       setIsDirty(false);
     } catch (error) {
       console.error("Failed to save user data:", error);
     }
+  };
+
+  const renderProfessionalInfo = () => {
+    const professionalFields = [
+      { id: "category", label: "Category", value: editedUser.category },
+      { id: "profession", label: "Profession", value: editedUser.profession },
+      { id: "description", label: "Description", value: editedUser.description },
+    ];
+
+    return professionalFields.map((field) => (
+      <div className="detail" key={field.id}>
+        <label htmlFor={field.id}>{field.label}:</label>
+        <input type="text" id={field.id} value={field.value || ""} onChange={handleChange} />
+      </div>
+    ));
   };
 
   return (
@@ -125,22 +128,7 @@ const Profile = ({ token, userData }) => {
             </div>
           </div>
         </div>
-        {editedUser.role === "professional" && (
-          <div className="professional-info">
-            <div className="detail">
-              <label htmlFor="category">Category:</label>
-              <input type="text" id="category" value={editedUser.category || ""} onChange={handleChange} />
-            </div>
-            <div className="detail">
-              <label htmlFor="profession">Profession:</label>
-              <input type="text" id="profession" value={editedUser.profession || ""} onChange={handleChange} />
-            </div>
-            <div className="detail">
-              <label htmlFor="description">Description:</label>
-              <input type="text" id="description" value={editedUser.description || ""} onChange={handleChange} />
-            </div>
-          </div>
-        )}
+        {editedUser.role === "professional" && renderProfessionalInfo()}
       </div>
       <div className="additional-info-container">{/* Add more additional info boxes here */}</div>
     </div>

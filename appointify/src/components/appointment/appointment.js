@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 
 const AppointmentBy = ({ appointments, onCancel }) => {
-  const filteredAppointments = appointments.filter((appointment) => appointment.status === "pending");
-  const sortedAppointments = filteredAppointments.sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
+  const sortedAppointments = appointments.filter((appointment) => appointment.status === "pending").sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
 
   return (
     <div>
@@ -178,13 +177,11 @@ const AppointmentItem = ({ appointment, onAccept, onReject }) => {
   }
 };
 
-const getConfirmedAppointments = (appointments) => {
-  const currentDate = new Date();
-  return appointments.filter((appointment) => new Date(appointment.startTime) >= currentDate && appointment.status === "accepted");
-};
-
 const ConfirmedAppointments = ({ appointments }) => {
-  const confirmedAppointments = getConfirmedAppointments(appointments);
+  const currentDate = new Date();
+  const appointedBy = appointments.appointedBy.filter((appointment) => new Date(appointment.startTime) >= currentDate && appointment.status === "accepted");
+  const appointedTo = appointments.appointedTo.filter((appointment) => new Date(appointment.startTime) >= currentDate && appointment.status === "accepted");
+  const confirmedAppointments = appointedBy.concat(appointedTo).sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
 
   return (
     <div>
@@ -225,47 +222,50 @@ const ConfirmedAppointments = ({ appointments }) => {
     </div>
   );
 };
-// const AppointmentHistory = ({ appointments }) => {
-//   const confirmedAppointments = getConfirmedAppointments(appointments);
+const History = ({ appointments }) => {
+  const currentDate = new Date();
+  const appointedBy = appointments.appointedBy.filter((appointment) => new Date(appointment.startTime) < currentDate);
+  const appointedTo = appointments.appointedTo.filter((appointment) => new Date(appointment.startTime) < currentDate);
+  const confirmedAppointments = appointedBy.concat(appointedTo).sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
 
-//   return (
-//     <div>
-//       {confirmedAppointments.length > 0 ? (
-//         confirmedAppointments.map((appointment) => (
-//           <div key={appointment._id} className="appointment-information">
-//             <div className="appointment-header">
-//               <div>
-//                 <p>
-//                   <strong>Appointed By:</strong> {appointment.appointedBy.fullName}
-//                 </p>
-//                 <p>
-//                   <strong>Appointed To:</strong> {appointment.appointedTo.fullName}
-//                 </p>
-//               </div>
-//               <div>
-//                 <p className={`status ${appointment.status}`}>
-//                   <strong>Status:</strong> {appointment.status}
-//                 </p>
-//               </div>
-//             </div>
-//             <div className="appointment-summary">
-//               <p>
-//                 <strong>Date:</strong> {new Date(appointment.startTime).toLocaleDateString()}
-//               </p>
-//               <p>
-//                 <strong>Time:</strong> {new Date(appointment.startTime).toLocaleTimeString()} - {new Date(appointment.endTime).toLocaleTimeString()}
-//               </p>
-//               <p>
-//                 <strong>Description:</strong> {appointment.description}
-//               </p>
-//             </div>
-//           </div>
-//         ))
-//       ) : (
-//         <p>No appointment history found.</p>
-//       )}
-//     </div>
-//   );
-// };
+  return (
+    <div>
+      {confirmedAppointments.length > 0 ? (
+        confirmedAppointments.map((appointment) => (
+          <div key={appointment._id} className="appointment-information">
+            <div className="appointment-header">
+              <div>
+                <p>
+                  <strong>Appointed By:</strong> {appointment.appointedBy.fullName}
+                </p>
+                <p>
+                  <strong>Appointed To:</strong> {appointment.appointedTo.fullName}
+                </p>
+              </div>
+              <div>
+                <p className={`status ${appointment.status}`}>
+                  <strong>Status:</strong> {appointment.status}
+                </p>
+              </div>
+            </div>
+            <div className="appointment-summary">
+              <p>
+                <strong>Date:</strong> {new Date(appointment.startTime).toLocaleDateString()}
+              </p>
+              <p>
+                <strong>Time:</strong> {new Date(appointment.startTime).toLocaleTimeString()} - {new Date(appointment.endTime).toLocaleTimeString()}
+              </p>
+              <p>
+                <strong>Description:</strong> {appointment.description}
+              </p>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p>No confirmed appointments found.</p>
+      )}
+    </div>
+  );
+};
 
-export { AppointmentTo, AppointmentBy, ConfirmedAppointments };
+export { AppointmentTo, AppointmentBy, ConfirmedAppointments, History };
