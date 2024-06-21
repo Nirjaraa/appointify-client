@@ -8,12 +8,10 @@ import image from "../../images/salman.jpg";
 
 const UserPage = () => {
 	const [user, setUser] = useState(null);
+	const [occupied, setOccupied] = useState(null);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const location = useLocation();
 	const { professionalData, token, userData } = location.state || {};
-
-	console.log("userW");
-	console.log(token);
 
 	useEffect(() => {
 		const fetchUser = async () => {
@@ -43,7 +41,35 @@ const UserPage = () => {
 			}
 		};
 
+		const fetchOccupied = async () => {
+			if (!professionalData || !professionalData._id) {
+				return;
+			}
+
+			try {
+				const response = await fetch(`http://localhost:5000/user/occupied`, {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
+					},
+				});
+
+				if (!response.ok) {
+					const errorMessage = await response.text();
+					throw new Error(errorMessage || "Something went wrong");
+				}
+
+				const data = await response.json();
+				setOccupied(data.occupiedTimes);
+			} catch (error) {
+				console.error("Error fetching user:", error);
+				setUser(null);
+			}
+		};
+
 		fetchUser();
+		fetchOccupied();
 	}, [professionalData, token]);
 
 	const handleModalSave = async (startTime, endTime, description, token, appointedTo) => {
@@ -113,6 +139,14 @@ const UserPage = () => {
 						<div className="profile-info">
 							<h2>{user.fullName}</h2>
 							<p>{user.role}</p>
+						</div>
+						<div>
+							{occupied.map((times) => (
+								<div>
+									<span>{times.startTime}</span>
+									<span>{times.endTime}</span>
+								</div>
+							))}
 						</div>
 						<button className="edit-profile-btn" onClick={handleAppointClick}>
 							Appoint

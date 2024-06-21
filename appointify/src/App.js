@@ -13,6 +13,7 @@ import ResetPassword from "./pages/login/resetpassword";
 import VerifyResetOTP from "./pages/login/verifyotp";
 import CategoryPage from "./pages/category/category";
 import ProfilePage from "./pages/profile/profile";
+import SearchResultPage from "./pages/searchResult/searchResult";
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 				<Route path="/user" element={<UserPage />} />
 				<Route path="/profile" element={<ProfilePage />} />
 				<Route path="/category" element={<CategoryPage />} />
+				<Route path="/search-results" element={<SearchResultPage />} />
 				<Route path="/appointments" element={<AppointmentPage />} />
 				<Route path="/professionals" element={<ProfessionalPage />} />
 				<Route path="/forgot-password" element={<ForgotPassword />} />

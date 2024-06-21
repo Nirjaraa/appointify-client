@@ -17,6 +17,17 @@ export default function Professional({ category, data, token }) {
 		return null;
 	}
 
+	if (!category)
+		return (
+			<>
+				{data.map((user) => (
+					<div className="category-professional" onClick={() => handleClick(user)} key={user.id}>
+						{user.fullName}
+					</div>
+				))}
+			</>
+		);
+
 	return (
 		<div className="category">
 			<div className="category-heading" onClick={handleHeadingClick}>

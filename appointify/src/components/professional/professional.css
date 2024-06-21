@@ -2,97 +2,97 @@
 
 /* General Styles */
 body {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: rgb(182, 213, 249, 0.1);
+	font-family: "Poppins", sans-serif;
+	/* margin: 0;
+  padding: 0; */
+	background-color: rgb(182, 213, 249, 0.1);
 }
 
 /* Container Styles */
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
 }
 
 .container > div {
-  width: 100%;
-  max-width: 1200px;
+	width: 100%;
+	max-width: 1200px;
 }
 
 .navbar {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .professional-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	width: 100%;
 }
 
 /* Category Styles */
 .category {
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  margin: 20px auto; /* Center align */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  border: 2px solid #013d77;
-  width: 80%; /* Reduce the width */
-  max-width: 600px; /* Maximum width for larger screens */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-  margin-top: 100px;
+	padding: 20px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	margin: 20px auto; /* Center align */
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+	border: 2px solid #013d77;
+	width: 80%; /* Reduce the width */
+	max-width: 600px; /* Maximum width for larger screens */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+	margin-top: 100px;
 }
 
 .category:hover {
-  background-color: rgba(88, 165, 255, 0.3); /* Blue for hover background */
-  transform: scale(1.02); /* Slightly enlarge on hover */
+	background-color: rgba(88, 165, 255, 0.3); /* Blue for hover background */
+	transform: scale(1.02); /* Slightly enlarge on hover */
 }
 
 .category-heading {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .category-heading h2 {
-  font-size: 1.5rem;
-  color: #333333;
-  text-align: center;
+	font-size: 1.5rem;
+	color: #333333;
+	text-align: center;
 }
 
 /* Professional List Styles */
 .category-professional-container {
-  background-color: #ffffff;
-  padding: 15px;
-  border-radius: 10px;
-  overflow-y: auto; /* Add scroll if height exceeded */
-  background-color: #ffffff; /* Same background color as the category */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+	background-color: #ffffff;
+	padding: 15px;
+	border-radius: 10px;
+	overflow-y: auto; /* Add scroll if height exceeded */
+	background-color: #ffffff; /* Same background color as the category */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
 
 .category:hover + .category-professional-container {
-  background-color: #007bff; /* Blue background when .category is hovered */
+	background-color: #007bff; /* Blue background when .category is hovered */
 }
 
 .category-professional-container:hover {
-  background-color: #ffffff; /* Revert to white when hovered */
+	background-color: #ffffff; /* Revert to white when hovered */
 }
 
 .category-professional {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  border-radius: 10px;
-  border: 2px solid #000000; /* Black border */
-  margin-bottom: 10px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+	display: flex;
+	align-items: center;
+	padding: 15px;
+	border-radius: 10px;
+	border: 2px solid #000000; /* Black border */
+	margin-bottom: 10px;
+	cursor: pointer;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .category-professional:hover {
-  background-color: #e9ecef;
-  transform: translateY(-2px) scale(1.02); /* Slightly enlarge and move up on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly darker shadow on hover */
+	background-color: #e9ecef;
+	transform: translateY(-2px) scale(1.02); /* Slightly enlarge and move up on hover */
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly darker shadow on hover */
 }

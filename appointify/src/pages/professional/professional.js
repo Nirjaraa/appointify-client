@@ -46,7 +46,6 @@ const ProfessionalPage = () => {
 	return (
 		<div>
 			<Navbar token={token} />
-			{/* <div>{JSON.stringify(token)}</div> */}
 			{professionals.users.map((categoryData) => (
 				<Professional data={categoryData} category={categoryData[0].category} token={token} />
 			))}

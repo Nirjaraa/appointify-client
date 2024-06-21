@@ -1,0 +1,25 @@
+.search-results-container {
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 60%;
+	text-align: center;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+.searched-users {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 15px;
+	border-radius: 10px;
+	border: 2px solid #000000; /* Black border */
+	margin-bottom: 10px;
+	cursor: pointer;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
