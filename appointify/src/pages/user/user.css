@@ -37,7 +37,7 @@
 
 .edit-profile-btn {
   padding: 12px 24px;
-  background: linear-gradient(to right, #007bff, #00bcd4);
+  background: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -101,3 +101,24 @@
   margin: 0;
   margin-top: 3px;
 }
+
+@media (max-width: 480px) {
+  .profile-container {
+    margin: 20px auto; /* Reduce margins for very small screens */
+    padding: 10px;
+  }
+
+  .edit-profile-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .profile-info h2 {
+    font-size: 1.5rem; /* Adjust font size for headers */
+  }
+
+  .profile-info p {
+    font-size: 1rem; /* Adjust font size for paragraphs */
+  }
+}
+

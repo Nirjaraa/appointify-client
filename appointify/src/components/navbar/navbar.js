@@ -103,9 +103,7 @@ const Navbar = ({ token, userData }) => {
 					<button onClick={() => handleNavigation("/home")} className="link">
 						Home
 					</button>
-					<button onClick={() => handleNavigation("/appointments")} className="link">
-						Appointments
-					</button>
+
 					<button onClick={() => handleNavigation("/professionals")} className="link">
 						Professionals
 					</button>

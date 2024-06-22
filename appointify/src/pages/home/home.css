@@ -1,33 +1,57 @@
-/* Center the entire appointment section */
-.appointment {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
-	padding: 20px;
-	background-color: #f9f9f9;
-}
-
 .appointment-nav {
 	display: flex;
-	gap: 10px;
+	justify-content: center;
 	margin-bottom: 20px;
 }
 
-.appointment-container {
-	width: 100%;
-	max-width: 800px;
-	background-color: #fff;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	padding: 20px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+.appointment-nav-item {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 10px 20px;
+	font-size: 20px;
+	margin: 0 10px;
+	color: #333; /* Default font color */
+	font-weight: bold;
 }
 
-button {
+.appointment-nav-item.active {
+	border-bottom: 2px solid black; /* Active link bottom border */
+	color: #000; /* Font color for active link */
+}
+
+.appointment-nav-item:hover {
+	color: #555; /* Font color on hover */
+}
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+	.appointment-nav {
+		flex-direction: column; /* Stack items vertically on small screens */
+		align-items: center;
+	}
+
+	.appointment-nav-item {
+		margin: 10px 0; /* Add margin between items when stacked */
+	}
+
+	.appointment-nav-item.active {
+		border-bottom: none; /* Remove bottom border for active item */
+		border-left: 2px solid black; /* Add left border for active item */
+	}
+}
+body {
+	display: flex;
+	flex-direction: column;
+
+	@media (max-width: 480px) {
+		.appointment-nav-item {
+			font-size: 18px; /* Reduce font size on very small screens */
+			padding: 8px 16px;
+		}
+	}
+}
+
+/* button {
 	padding: 10px 20px;
 	border: none;
 	background-color: #007bff;
@@ -47,4 +71,4 @@ button.link {
 
 button.link:hover {
 	color: #0056b3;
-}
+} */

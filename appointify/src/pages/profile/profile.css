@@ -1,104 +1,140 @@
 .user-profile-container {
-	max-width: 800px;
-	margin: 90px auto;
-	padding: 20px;
-	border: 1px solid #ccc;
-	border-radius: 10px;
-	margin-bottom: 10px;
-	margin-top: 20px;
-	background-color: white;
-	margin-top: 100px;
-	margin-bottom: 80px;
+  max-width: 800px;
+  margin: 90px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  background-color: white;
+  margin-top: 100px;
+  margin-bottom: 80px;
 }
 
 .user-profile-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .user-profile-avatar {
-	width: 150px;
-	height: 150px;
-	background-color: #ccc;
-	border-radius: 50%;
-	margin-right: 20px;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  width: 150px;
+  height: 150px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin-right: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .user-profile-avatar img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .user-edit-profile-btn {
-	padding: 12px 24px;
-	background: linear-gradient(to right, #007bff, #00bcd4);
-	color: #fff;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	font-size: 1.1rem;
-	transition: filter 0.3s;
+  padding: 12px 24px;
+  background: linear-gradient(to right, #007bff, #00bcd4);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: filter 0.3s;
 }
 
 .user-edit-profile-btn:hover {
-	filter: brightness(90%);
+  filter: brightness(90%);
 }
 
 .user-profile-details {
-	margin-top: 20px;
-	position: relative; /* Add this to allow absolute positioning of the button */
+  margin-top: 20px;
+  position: relative; /* Add this to allow absolute positioning of the button */
 }
 
 .user-detail {
-	display: flex;
-	align-items: center;
-	margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .user-detail label {
-	width: 120px;
-	font-weight: bold;
+  width: 120px;
+  font-weight: bold;
 }
 
 .user-detail input[type="text"] {
-	flex: 1;
-	padding: 8px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .user-additional-info-container {
-	display: flex;
-	margin-top: 20px;
+  display: flex;
+  margin-top: 20px;
 }
 
 .user-additional-info-box {
-	flex: 1;
-	background-color: #f0f0f0;
-	padding: 20px;
-	border-radius: 10px;
-	margin-right: 10px;
+  flex: 1;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  margin-right: 10px;
 }
 
 .user-additional-info-box:last-child {
-	margin-right: 0;
+  margin-right: 0;
 }
 
 .user-profile-info {
-	flex-grow: 1;
+  flex-grow: 1;
 }
 
 .user-profile-info h2 {
-	margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .user-profile-info p {
-	margin: 0;
-	margin-top: 3px;
+  margin: 0;
+  margin-top: 3px;
+}
+
+.logout-btn {
+  padding: 12px 24px;
+  background: linear-gradient(to right, #007bff, #00bcd4); /* Blue gradient */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: filter 0.3s;
+  margin-top: 1; /* Add margin for spacing */
+  float: right; /* Align the button to the right */
+}
+
+.logout-btn:hover {
+  filter: brightness(90%);
+}
+@media (max-width: 480px) {
+  .user-profile-container {
+    margin: 20px auto; /* Reduce margins for very small screens */
+    padding: 10px;
+  }
+
+  .user-edit-profile-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .user-profile-info h2 {
+    font-size: 1.5rem; /* Adjust font size for headers */
+  }
+
+  .user-profile-info p {
+    font-size: 1rem; /* Adjust font size for paragraphs */
+  }
 }

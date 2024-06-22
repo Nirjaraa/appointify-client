@@ -1,82 +1,185 @@
-.appointment-nav {
-	display: flex;
-	justify-content: center;
-	margin: 20px 0;
-	gap: 10px;
-}
-
-.appointment-nav button {
-	padding: 10px 20px;
-	cursor: pointer;
-	background-color: #007bff;
-	color: #fff;
-	border: none;
-	border-radius: 5px;
-}
-
-.appointment-nav button:hover {
-	background-color: #0056b3;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 
 .appointment-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 200px;
 }
 
-.appointment {
-	border: 1px solid #ccc;
-	padding: 10px;
-	margin: 10px;
-	border-radius: 5px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	width: 80%;
-	max-width: 600px;
+.appointment-information {
+  border: 1px solid #34b2e7;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.appointment-informations {
+  border: 1px solid #34b2e7;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 500px;
+}
+
+.reject-button {
+  background-color: #f44336;
+}
+
+.accept-button:hover {
+  background-color: #45a049;
+}
+
+.show-more:hover {
+  color: #0056b3;
+  text-decoration: none;
 }
 
 .appointment-header {
-	display: flex;
-	justify-content: space-between;
-}
-
-.status {
-	font-weight: bold;
-}
-
-.status.pending {
-	color: orange;
-}
-
-.status.accepted {
-	color: green;
-}
-
-.status.rejected {
-	color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
 .appointment-summary {
-	display: flex;
-	flex-direction: column;
-	margin-top: 10px;
+  margin-bottom: 12px;
 }
 
-.appointment-summary p {
-	margin: 5px 0;
+.appointment-header p {
+  margin: 0;
+}
+
+.status {
+  font-weight: bold;
+}
+
+.accept-button,
+.reject-button {
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 8px;
+  color: white;
+  font-weight: bold;
+  outline: none;
+  width: 240px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.accept-button {
+  background-color: #4caf50;
+}
+
+.reject-button {
+  background-color: #f44336;
+}
+
+.disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+.status.pending {
+  color: orange;
+}
+
+.action-buttons.status.accepted {
+  color: green;
+}
+
+.status.rejected {
+  color: red;
 }
 
 .action-buttons {
-	display: flex;
-	gap: 10px;
-	margin-top: 10px;
+  display: flex;
+  gap: 80px;
+  margin-top: 10px;
 }
 
-button {
-	padding: 5px 10px;
-	cursor: pointer;
+.cancel-button {
+  background-color: #cd4f4f; /* Red color */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 500px;
 }
 
-button[disabled] {
-	cursor: not-allowed;
-	opacity: 0.6;
+.cancel-button:hover {
+  background-color: #9c4040; /* Darker red color on hover */
+}
+
+.status {
+  font-weight: bold;
+  text-align: right;
+}
+
+.status.accepted {
+  color: #4caf50;
+}
+
+.p.status.status.rejected {
+  color: #f44336;
+}
+
+.appointment {
+  margin-top: 100px;
+  align-items: center;
+}
+.appointment-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.appointment-summary {
+  margin-top: 0px;
+}
+
+.appointment-header p,
+.appointment-summary p {
+  margin: 5px 0;
+}
+
+.show-more {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.spaces {
+  margin-bottom: 200px;
+}
+
+@media screen and (max-width: 600px) {
+  .appointment-container {
+    width: 90%; /* Adjusted width for smaller screens */
+    margin: 0 auto; /* Center the container */
+  }
+
+  .appointment-informations {
+    width: 90%; /* Adjusted width for smaller screens */
+    max-width: 300px; /* Limit the maximum width */
+  }
+
+  .cancel-button {
+    width: 100%; /* Full width for smaller screens */
+    max-width: 300px; /* Limit the maximum width */
+  }
 }

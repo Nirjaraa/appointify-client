@@ -3,8 +3,8 @@ import "./appointment.css";
 import Swal from "sweetalert2";
 
 const Modal = ({ show, onClose, onConfirm, token, appointedTo }) => {
-  const [startTime, setStartTime] = useState();
-  const [endTime, setEndTime] = useState();
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
   const [description, setDescription] = useState("");
 
   if (!show) {
@@ -12,6 +12,16 @@ const Modal = ({ show, onClose, onConfirm, token, appointedTo }) => {
   }
 
   const handleConfirm = () => {
+    if (!startTime || !endTime || !description) {
+      Swal.fire({
+        title: "Error",
+        text: "Please fill out all fields",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
     Swal.fire({
       title: "Confirm Appointment",
       text: "Are you sure you want to book this appointment?",
@@ -23,12 +33,20 @@ const Modal = ({ show, onClose, onConfirm, token, appointedTo }) => {
       cancelButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
-        onConfirm(startTime, endTime, description, token, appointedTo);
-        Swal.fire("Success", "Appointment has been booked successfully", "success");
+        try {
+          onConfirm(startTime, endTime, description, token, appointedTo);
+          Swal.fire("Success", "Appointment has been booked successfully", "success");
+          onClose();
+        } catch (error) {
+          Swal.fire({
+            title: "Error",
+            text: error.message || "Something went wrong",
+            icon: "error",
+            confirmButtonText: "OK",
+          });
+        }
       }
     });
-
-    onClose();
   };
 
   return (

@@ -78,3 +78,11 @@
   color: black;
   border-color: #0692e9;
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+  .modal {
+    width: 90%; /* Adjusted width for smaller screens */
+    max-width: 300px; /* Limit the maximum width on smaller screens */
+  }
+}

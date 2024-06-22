@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+/* Page container */
+.Page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-top: 100px;
+}
+
+/* Main container */
+.MainContainer {
+  flex: 1; /* Ensures the main content takes up available space */
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Header */
+.Header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.Header h1 {
+  font-size: 36px;
+  margin-top: 1px;
+}
+
+/* Content section */
+.Content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* About and Guidelines sections */
+.About,
+.Guidelines {
+  flex: 1;
+  margin: 1px 20px 20px 20px;
+}
+
+.About h2,
+.Guidelines h2 {
+  font-size: 24px;
+}
+
+/* Unified paragraph styles for both sections */
+.About p,
+.Guidelines p {
+  font-size: 18px; /* Increased font size */
+  line-height: 1.6;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.Guidelines ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.Guidelines li {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Footer */
+.Footer {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #eaeaea;
+  width: 100%;
+  margin-top: auto; /* Ensures footer is pushed to the bottom */
+}
+
+@media (max-width: 480px) {
+  .MainContainer {
+    padding: 10px;
+  }
+
+  .Header h1 {
+    font-size: 24px;
+  }
+
+  .About h2,
+  .Guidelines h2 {
+    font-size: 18px;
+  }
+
+  .About p,
+  .Guidelines p,
+  .Guidelines li {
+    font-size: 14px;
+  }
+}
