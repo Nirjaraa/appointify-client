@@ -103,22 +103,6 @@
   margin-top: 3px;
 }
 
-.logout-btn {
-  padding: 12px 24px;
-  background: linear-gradient(to right, #007bff, #00bcd4); /* Blue gradient */
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  transition: filter 0.3s;
-  margin-top: 1; /* Add margin for spacing */
-  float: right; /* Align the button to the right */
-}
-
-.logout-btn:hover {
-  filter: brightness(90%);
-}
 @media (max-width: 480px) {
   .user-profile-container {
     margin: 20px auto; /* Reduce margins for very small screens */

@@ -16,44 +16,45 @@ import ProfilePage from "./pages/profile/profile";
 import SearchResultPage from "./pages/searchResult/searchResult";
 
 function App() {
-	return (
-		<div className="App">
-			<Routes>
-				<Route exact path="/" element={<LandingPage />} />
-				<Route path="/login" element={<Login />} />
-				<Route path="/home" element={<HomePage />} />
-				<Route path="/user" element={<UserPage />} />
-				<Route path="/profile" element={<ProfilePage />} />
-				<Route path="/category" element={<CategoryPage />} />
-				<Route path="/appointments" element={<AppointmentPage />} />
-				<Route path="/professionals" element={<ProfessionalPage />} />
-				<Route path="/forgot-password" element={<ForgotPassword />} />
-				<Route path="/verify-reset-otp" element={<VerifyResetOTP />} />
-				<Route path="/reset-password" element={<ResetPassword />} />
-				<Route path="/verification" element={<VerifyEmail />} />
-				<Route path="/about" element={<AboutUs />} />
-			</Routes>
-		</div>
-	);
-	return (
-		<div className="App">
-			<Routes>
-				<Route exact path="/" element={<LandingPage />} />
-				<Route path="/login" element={<Login />} />
-				<Route path="/home" element={<HomePage />} />
-				<Route path="/user" element={<UserPage />} />
-				<Route path="/profile" element={<ProfilePage />} />
-				<Route path="/category" element={<CategoryPage />} />
-				<Route path="/search-results" element={<SearchResultPage />} />
-				<Route path="/appointments" element={<AppointmentPage />} />
-				<Route path="/professionals" element={<ProfessionalPage />} />
-				<Route path="/forgot-password" element={<ForgotPassword />} />
-				<Route path="/verify-reset-otp" element={<VerifyResetOTP />} />
-				<Route path="/reset-password" element={<ResetPassword />} />
-				<Route path="/verification" element={<VerifyEmail />} />
-				<Route path="/about" element={<AboutUs />} />
-			</Routes>
-		</div>
-	);
+  return (
+    <div className="App">
+      <Routes>
+        <Route exact path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/user" element={<UserPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/category" element={<CategoryPage />} />
+        <Route path="/appointments" element={<AppointmentPage />} />
+        <Route path="/professionals" element={<ProfessionalPage />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verify-reset-otp" element={<VerifyResetOTP />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/verification" element={<VerifyEmail />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/search-results" element={<SearchResultPage />} />
+      </Routes>
+    </div>
+  );
+  return (
+    <div className="App">
+      <Routes>
+        <Route exact path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/user" element={<UserPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/category" element={<CategoryPage />} />
+        <Route path="/search-results" element={<SearchResultPage />} />
+        <Route path="/appointments" element={<AppointmentPage />} />
+        <Route path="/professionals" element={<ProfessionalPage />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verify-reset-otp" element={<VerifyResetOTP />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/verification" element={<VerifyEmail />} />
+        <Route path="/about" element={<AboutUs />} />
+      </Routes>
+    </div>
+  );
 }
 export default App;

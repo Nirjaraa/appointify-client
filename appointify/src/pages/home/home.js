@@ -138,7 +138,7 @@ const HomePage = () => {
         <div className="appointment-container">
           {currentView === "by" && <AppointmentBy appointments={appointmentsBy} onCancel={handleCancel} />}
           {currentView === "to" && <AppointmentTo appointments={appointmentsTo} onAccept={handleAccept} onReject={handleReject} />}
-          {currentView === "confirmed" && <ConfirmedAppointments appointments={acceptedAppointments} />}
+          {currentView === "confirmed" && <ConfirmedAppointments appointments={acceptedAppointments} user={userData} />}
           {currentView === "history" && <History appointments={acceptedAppointments} />}
         </div>
       </div>

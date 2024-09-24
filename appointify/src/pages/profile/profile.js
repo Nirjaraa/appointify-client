@@ -29,6 +29,7 @@ const ProfilePage = () => {
         }
 
         const data = await response.json();
+
         setUser(data.user);
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -39,32 +40,11 @@ const ProfilePage = () => {
     fetchUsers();
   }, [token, userData]);
 
-  const handleLogout = () => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, logout!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Clear user token from localStorage
-        localStorage.removeItem("userToken");
-        // Redirect to login page
-        navigate("/login");
-      }
-    });
-  };
-
   return (
     <div>
       <Navbar token={token} userData={user} />
       <Profile userData={user} token={token} />
-      <button className="logout-btn" onClick={handleLogout}>
-        Logout
-      </button>
+
       <Footer />
     </div>
   );

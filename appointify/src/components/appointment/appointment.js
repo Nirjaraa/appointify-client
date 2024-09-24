@@ -3,7 +3,10 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 
 const AppointmentBy = ({ appointments, onCancel }) => {
-  const sortedAppointments = appointments.filter((appointment) => appointment.status === "pending").sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
+  let sortedAppointments = [];
+  if (appointments && appointments.length)
+    sortedAppointments = appointments.filter((appointment) => appointment.status === "pending").sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
+  // const sortedAppointments = appointments.filter((appointment) => appointment.status === "pending").sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
 
   return (
     <div>
@@ -177,12 +180,20 @@ const AppointmentItem = ({ appointment, onAccept, onReject }) => {
   }
 };
 
-const ConfirmedAppointments = ({ appointments }) => {
+const ConfirmedAppointments = ({ appointments, user }) => {
   const currentDate = new Date();
-  const appointedBy = appointments.appointedBy.filter((appointment) => new Date(appointment.startTime) >= currentDate && appointment.status === "accepted");
-  const appointedTo = appointments.appointedTo.filter((appointment) => new Date(appointment.startTime) >= currentDate && appointment.status === "accepted");
+  console.log(appointments);
+  let appointedBy = [];
+  let appointedTo = [];
+  if (appointments.appointedBy && appointments.appointedBy.length)
+    appointedBy = appointments.appointedBy.filter((appointment) => new Date(appointment.startTime) >= currentDate && appointment.status === "accepted");
+  if (appointments.appointedTo && appointments.appointedTo.length)
+    appointedTo = appointments.appointedTo.filter((appointment) => new Date(appointment.startTime) >= currentDate && appointment.status === "accepted");
+  // const appointedBy = appointments.appointedBy.filter((appointment) => new Date(appointment.startTime) >= currentDate && appointment.status === "accepted");
+  // const appointedTo = appointments.appointedTo.filter((appointment) => new Date(appointment.startTime) >= currentDate && appointment.status === "accepted");
   const confirmedAppointments = appointedBy.concat(appointedTo).sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
 
+  console.log(confirmedAppointments, appointedBy, appointedTo);
   return (
     <div>
       {confirmedAppointments.length > 0 ? (
@@ -191,7 +202,7 @@ const ConfirmedAppointments = ({ appointments }) => {
             <div className="appointment-header">
               <div>
                 <p>
-                  <strong>Appointed By:</strong> {appointment.appointedBy.fullName}
+                  <strong>Appointed By:</strong> {user.fullName}
                 </p>
                 <p>
                   <strong>Appointed To:</strong> {appointment.appointedTo.fullName}
@@ -224,8 +235,12 @@ const ConfirmedAppointments = ({ appointments }) => {
 };
 const History = ({ appointments }) => {
   const currentDate = new Date();
-  const appointedBy = appointments.appointedBy.filter((appointment) => new Date(appointment.startTime) < currentDate);
-  const appointedTo = appointments.appointedTo.filter((appointment) => new Date(appointment.startTime) < currentDate);
+  let appointedBy = [];
+  let appointedTo = [];
+  if (appointments.appointedBy && appointments.appointedBy.length) appointedBy = appointments.appointedBy.filter((appointment) => new Date(appointment.startTime) < currentDate);
+  if (appointments.appointedTo && appointments.appointedTo.length) appointedTo = appointments.appointedTo.filter((appointment) => new Date(appointment.startTime) < currentDate);
+  // const appointedBy = appointments.appointedBy.filter((appointment) => new Date(appointment.startTime) < currentDate);
+  // const appointedTo = appointments.appointedTo.filter((appointment) => new Date(appointment.startTime) < currentDate);
   const confirmedAppointments = appointedBy.concat(appointedTo).sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
 
   return (

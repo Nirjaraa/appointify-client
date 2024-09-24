@@ -1,6 +1,6 @@
 //
 import React, { useState, useEffect } from "react";
-import image from "../../images/salman.jpg";
+import image from "../../images/profilepic.webp";
 import "./profile.css";
 
 const Profile = ({ token, userData }) => {
@@ -42,7 +42,7 @@ const Profile = ({ token, userData }) => {
 
   const handleSave = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/user/${userData._id}`, {
+      const response = await fetch(`http://localhost:5000/user/update/${userData._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

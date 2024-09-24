@@ -84,6 +84,43 @@ body {
   display: none;
 }
 
+.search-button {
+  /* Basic styles */
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  padding: 10px 20px;
+  margin-left: 10px; /* Padding around the button */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline from text */
+  display: inline-block; /* Inline block to fit content */
+  font-size: 14px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  height: 38px;
+
+  /* Transition for smooth hover effect */
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Hover effect */
+.search-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Focus effect for accessibility */
+.search-button:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px #007bff; /* Add blue shadow */
+}
+
+/* Active effect */
+.search-button:active {
+  background-color: #004080; /* Even darker blue when clicked */
+  transform: scale(1); /* Return to original size when clicked */
+}
+
 @media screen and (max-width: 768px) {
   /* Show side lines on smaller screens */
   &::before,
@@ -103,5 +140,17 @@ body {
 
   &::after {
     right: 0;
+  }
+  .search-bar {
+    max-width: none; /* Allow full width on smaller screens */
+    width: calc(100% - 90px); /* Adjust width to fit remaining space */
+    margin-right: 10px; /* Add margin for separation */
+  }
+
+  .search-button {
+    margin-left: 0; /* Remove margin on small screens */
+    min-width: 80px; /* Ensure minimum width for button */
+    padding: 10px 15px; /* Adjust padding for smaller buttons */
+    font-size: 12px; /* Decrease font size */
   }
 }
